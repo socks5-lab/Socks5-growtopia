@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Buy SOCKS5</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f6f8;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 900px;
+      margin: 40px auto;
+      background: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      padding: 30px;
+    }
+    h1, h2 {
+      color: #222;
+    }
+    .price {
+      font-size: 20px;
+      margin: 15px 0;
+      font-weight: bold;
+    }
+    .btn {
+      display: inline-block;
+      padding: 12px 20px;
+      background: #2563eb;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+      text-decoration: none;
+    }
+    .btn:hover {
+      background: #1e4ed8;
+    }
+    .hidden {
+      display: none;
+    }
+    .upload-box {
+      margin-top: 20px;
+      padding: 20px;
+      border: 2px dashed #ccc;
+      border-radius: 8px;
+      text-align: center;
+    }
+    input[type="file"] {
+      margin-top: 10px;
+    }
+    .submit-btn {
+      margin-top: 20px;
+      background: #16a34a;
+    }
+    .submit-btn:hover {
+      background: #15803d;
+    }
+    .note {
+      margin-top: 15px;
+      font-size: 14px;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- PAGE 1: PRODUCT -->
+  <div class="container" id="page-product">
+    <h1>SOCKS5 Proxy</h1>
+    <p>Fast and reliable SOCKS5 proxy service.</p>
+    <div class="price">Price: 7 Blue Gem Lock (Monthly)</div>
+    <button class="btn" onclick="goToPayment()">Buy Now</button>
+  </div>
+
+  <!-- PAGE 2: PAYMENT -->
+  <div class="container hidden" id="page-payment">
+    <h2>Payment</h2>
+    <p><strong>Payment World:</strong> DANTSAVES</p>
+
+    <div class="upload-box">
+      <p>Please upload a screenshot or file as proof of payment.</p>
+      <input type="file" id="paymentFile" accept="image/*,.pdf" />
+    </div>
+
+    <button class="btn submit-btn" onclick="submitPayment()">Submit</button>
+
+    <p class="note" id="status"></p>
+  </div>
+
+  <script>
+    function goToPayment() {
+      document.getElementById('page-product').classList.add('hidden');
+      document.getElementById('page-payment').classList.remove('hidden');
+    }
+
+    function submitPayment() {
+      const fileInput = document.getElementById('paymentFile');
+      const status = document.getElementById('status');
+
+      if (fileInput.files.length === 0) {
+        status.style.color = 'red';
+        status.textContent = 'Please upload a screenshot or file before submitting.';
+        return;
+      }
+
+      // This is only a front-end demo (no backend upload)
+      status.style.color = 'green';
+      status.textContent = 'Screenshot/file submitted successfully. Please wait for confirmation.';
+      fileInput.value = '';
+    }
+  </script>
+
+</body>
+</html>
